@@ -15,7 +15,7 @@
 syntax = "proto3";
 package gen_bq_schema;
 
-option go_package = "github.com/GoogleCloudPlatform/protoc-gen-bq-schema/protos";
+option go_package = "../protos";
 
 import "google/protobuf/descriptor.proto";
 
@@ -50,4 +50,7 @@ message BigQueryMessageOptions {
   // If true, BigQuery field names will default to a field's JSON name,
   // not its original/proto field name.
   bool use_json_names = 2;
+
+  // Optionally omit a message from BigQuery schema.
+  bool ignore = 3;
 }

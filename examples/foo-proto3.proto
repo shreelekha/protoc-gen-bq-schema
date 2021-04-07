@@ -14,6 +14,7 @@ message Bar {
   option (gen_bq_schema.bigquery_opts).table_name = "bar_proto3_table";
 
   message Nested {
+    option (gen_bq_schema.bigquery_opts).ignore = true;
     repeated int32 a = 1;
   }
 

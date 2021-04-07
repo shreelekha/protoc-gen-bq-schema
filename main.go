@@ -20,7 +20,7 @@
 //
 
 // Protobuf code for extensions are generated --
-//go:generate protoc --go_out=. --go_opt=module=github.com/GoogleCloudPlatform/protoc-gen-bq-schema bq_table.proto bq_field.proto
+//go:generate protoc --go_out=. --go_opt=module=github.com/shreelekha/protoc-gen-bq-schema bq_table.proto bq_field.proto
 
 package main
 
@@ -34,7 +34,7 @@ import (
 	"path"
 	"strings"
 
-	"github.com/GoogleCloudPlatform/protoc-gen-bq-schema/protos"
+	"github.com/shreelekha/protoc-gen-bq-schema/protos"
 
 	"github.com/golang/glog"
 
