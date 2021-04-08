@@ -8,45 +8,48 @@ import "bq_field.proto";
 import "google/protobuf/wrappers.proto";
 import "google/protobuf/timestamp.proto";
 
-import "common.proto";
+import "examples/common.proto";
 
 message Bar {
   option (gen_bq_schema.bigquery_opts).table_name = "bar_proto3_table";
 
   message Nested {
     option (gen_bq_schema.bigquery_opts).ignore = true;
-    repeated int32 a = 1;
+    oneof test_oneof {
+      int32 a = 1;
+      string b = 2;
+    }
   }
 
   // Description of field a -- this is an int32
-  int32 a = 1;
+  int32 c = 1;
 
   // Nested b structure
-  Nested b = 2;
+  Nested d = 2;
 
   // Repeated c string
-  repeated string c = 3;
+  repeated string e = 3;
 
-  bool d = 4 [(gen_bq_schema.bigquery).ignore = true];
+  bool f = 4 [(gen_bq_schema.bigquery).ignore = true];
 
   // TIMESTAMP (uint64 in proto) - required in BigQuery
-  uint64 e = 5 [
+  uint64 g = 5 [
     (gen_bq_schema.bigquery) = {
       require: true
       type_override: 'TIMESTAMP'
     }
   ];
 
-  google.protobuf.Int32Value wkt1 = 11;
-  google.protobuf.Timestamp wkt2 = 12;
+  google.protobuf.Int32Value h = 11;
+  google.protobuf.Timestamp i = 12;
 
   // Sub-message within the file
-  Baz sub_baz = 13;
+  Baz j = 13;
 
   // Shared data defined in common.proto
-  Shared share_data = 14;
+  Shared k = 14;
 }
 
 message Baz {
-  int32 a = 1;
+  int32 l = 1;
 }

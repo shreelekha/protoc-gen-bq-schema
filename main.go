@@ -229,6 +229,13 @@ func convertField(
 	comments Comments,
 	path string) (*Field, error) {
 
+	if msgOpts.GetIgnore() {
+		//glog.Info("Ignoring message ++++ ")
+		//fmt.Println("Ignoring message ++++ ")
+		return nil, nil
+
+	}
+
 	field := &Field{
 		Name: desc.GetName(),
 	}
@@ -356,6 +363,10 @@ func convertFile(file *descriptor.FileDescriptorProto) ([]*plugin.CodeGeneratorR
 			return nil, err
 		}
 		if opts == nil {
+			continue
+		}
+
+		if opts.GetIgnore() {
 			continue
 		}
 

@@ -6,19 +6,6 @@
   "description": "Description of field a -- this is an int32"
  },
  {
-  "name": "b",
-  "type": "RECORD",
-  "mode": "NULLABLE",
-  "description": "Nested b structure",
-  "fields": [
-   {
-    "name": "a",
-    "type": "INTEGER",
-    "mode": "REPEATED"
-   }
-  ]
- },
- {
   "name": "c",
   "type": "STRING",
   "mode": "REPEATED",
